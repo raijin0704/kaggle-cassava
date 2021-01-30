@@ -37,7 +37,7 @@ cfg:
   # T_max: 10 # CosineAnnealingLR
   T_0: 10 # CosineAnnealingWarmRestarts
   RandAugmentN: 1 # RandAugment(拡張回数)
-  RandAugmentM: 4  # RandAugment(拡張強度)
+  RandAugmentM: 2  # RandAugment(拡張強度)
   heavy_aug_start_epoch: -1  #cutmix or fmix (1からカウント)
   CutmixAlpha: 1. # cutmix
   lr: 1.0e-4
