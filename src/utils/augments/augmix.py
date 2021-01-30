@@ -2,6 +2,7 @@
 
 import numpy as np
 from PIL import Image, ImageOps, ImageEnhance
+from albumentations.core.transforms_interface import ImageOnlyTransform
 
 
 def int_parameter(level, maxval):
