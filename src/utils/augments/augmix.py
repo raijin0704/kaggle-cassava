@@ -1,4 +1,5 @@
 # copy from https://www.kaggle.com/haqishen/augmix-based-on-albumentations
+# normalizeしていないので注意 : https://github.com/google-research/augmix/blob/master/augment_and_mix.py#L25-L30
 
 import numpy as np
 from PIL import Image, ImageOps, ImageEnhance
