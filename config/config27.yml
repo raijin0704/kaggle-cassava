@@ -1,6 +1,6 @@
 info:
   PROJECT_ID: kaggle-300711
-  TRACKING_URI: http://34.74.164.18:5000
+  TRACKING_URI: http://34.74.197.236:5000
   TITLE: 27t-efficientnet_b4-cutmix-tta
   EXPERIMENT_ID: '1'
   SHARE_DRIVE_PATH: /content/drive/Shareddrives/便利用/kaggle/cassava/output
