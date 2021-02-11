@@ -49,7 +49,8 @@ def process_colab():
     # ライブラリ関係
     subprocess.run('pip install --upgrade opencv-python'.split(' '))
     subprocess.run('pip install --upgrade albumentations'.split(' '))
-    subprocess.run('pip install timm'.split(' '))
+    # subprocess.run('pip install timm'.split(' '))
+    subprocess.run('pip install git+https://github.com/rwightman/pytorch-image-models.git'.split(' '))
     # if CFG['apex']:
     #     print('installing apex')
     #     install_apex()
