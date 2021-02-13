@@ -28,7 +28,7 @@ cfg:
   epochs: 1000
   early_stopping_round: 5
   factor: 0.2 # ReduceLROnPlateau
-  patience: 4 # ReduceLROnPlateau
+  patience: 0 # ReduceLROnPlateau
   eps: 1e-6 # ReduceLROnPlateau
   # T_max: 10 # CosineAnnealingLR
   # T_0: 10 # CosineAnnealingWarmRestarts
