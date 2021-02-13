@@ -17,8 +17,8 @@ def seed_torch(seed=42):
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
-    def __init__(self, patience=7, verbose=False, val_loss_history=[], save_path='checkpoint.pt',
-                 counter=0, best_score=None, save_latest_path=None):
+    def __init__(self, patience=7, verbose=False, save_path='checkpoint.pt',
+                 counter=0, best_score=None, val_loss_history=[], save_latest_path=None):
         """
         Args:
             patience (int): How long to wait after last time validation loss improved.
