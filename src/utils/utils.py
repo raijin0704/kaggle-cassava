@@ -17,7 +17,7 @@ def seed_torch(seed=42):
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
-    def __init__(self, patience=7, verbose=False, save_path='checkpoint.pt',
+    def __init__(self, patience=7, verbose=False, val_loss_history=[], save_path='checkpoint.pt',
                  counter=0, best_score=None, save_latest_path=None):
         """
         Args:
@@ -36,7 +36,7 @@ class EarlyStopping:
         self.save_latest_path = save_latest_path
         self.early_stop = False
         self.val_loss_min = np.Inf
-        self.val_loss_history = []
+        self.val_loss_history = val_loss_history
 
     def __call__(self, val_loss, model, preds, epoch):
 
