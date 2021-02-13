@@ -27,6 +27,7 @@ cfg:
   size: 384
   epochs: 1000
   early_stopping_round: 5
+  early_stopping_eps: 1.0e-6
   factor: 0.2 # ReduceLROnPlateau
   patience: 0 # ReduceLROnPlateau
   eps: 1.0e-6 # ReduceLROnPlateau
