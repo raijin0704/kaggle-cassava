@@ -36,10 +36,12 @@ class EarlyStopping:
         self.save_latest_path = save_latest_path
         self.early_stop = False
         self.val_loss_min = np.Inf
+        self.val_loss_history = []
 
     def __call__(self, val_loss, model, preds, epoch):
 
         score = -val_loss
+        self.val_loss_history.append(val_loss)
 
         if self.best_score is None:
             self.best_score = score
@@ -66,14 +68,16 @@ class EarlyStopping:
         '''Saves model when validation loss decrease.'''
         if self.verbose:
             print(f'Validation loss decreased ({self.val_loss_min:.10f} --> {val_loss:.10f}).  Saving model ...')
-        torch.save({'model': model.state_dict(), 'preds': preds, 
-                    'epoch' : epoch, 'best_score' : self.best_score, 'counter' : self.counter},
+        torch.save({'model': model.state_dict(), 'preds': preds, 'epoch' : epoch, 
+                    'best_score' : self.best_score, 'counter' : self.counter, 
+                    'val_loss_history': self.val_loss_history},
                    self.save_path)
         self.val_loss_min = val_loss
 
     def save_latest(self, val_loss, model, preds, epoch, score):
         '''Saves latest model.'''
-        torch.save({'model': model.state_dict(), 'preds': preds, 
-                    'epoch' : epoch, 'score' : score, 'counter' : self.counter},
+        torch.save({'model': model.state_dict(), 'preds': preds, 'epoch' : epoch, 
+                    'score' : score, 'counter' : self.counter, 
+                    'val_loss_history': self.val_loss_history},
                    self.save_latest_path)
         self.val_loss_min = val_loss
