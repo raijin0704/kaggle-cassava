@@ -5,7 +5,7 @@ info:
   EXPERIMENT_ID: '2'
   SHARE_DRIVE_PATH: /content/drive/Shareddrives/便利用/kaggle/cassava/output
 tag:
-  scheduler: ReduceLROnPlateau  # ['ReduceLROnPlateau', 'CosineAnnealingLR', 'CosineAnnealingWarmRestarts']
+  scheduler: CosineAnnealingWarmRestarts  # ['ReduceLROnPlateau', 'CosineAnnealingLR', 'CosineAnnealingWarmRestarts']
   criterion: bi_tempered_logistic_loss
   
 cfg:
@@ -14,13 +14,13 @@ cfg:
   print_freq: 100
   num_workers: 4
   size: 384
-  epochs: 1000
+  epochs: 100
   early_stopping_round: 5
-  factor: 0.2 # ReduceLROnPlateau
-  patience: 0 # ReduceLROnPlateau
-  eps: 1.0e-6 # ReduceLROnPlateau
+  # factor: 0.2 # ReduceLROnPlateau
+  # patience: 0 # ReduceLROnPlateau
+  # eps: 1.0e-6 # ReduceLROnPlateau
   # T_max: 10 # CosineAnnealingLR
-  # T_0: 10 # CosineAnnealingWarmRestarts
+  T_0: 10 # CosineAnnealingWarmRestarts
   lr: 1.0e-4
   min_lr: 1.0e-6
   batch_size: 512
