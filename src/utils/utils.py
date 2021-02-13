@@ -17,7 +17,7 @@ def seed_torch(seed=42):
 
 class EarlyStopping:
     """Early stops the training if validation loss doesn't improve after a given patience."""
-    def __init__(self, patience=7, verbose=False, save_path='checkpoint.pt',
+    def __init__(self, patience=7, eps=0, verbose=False, save_path='checkpoint.pt',
                  counter=0, best_score=None, val_loss_history=[], save_latest_path=None):
         """
         Args:
@@ -29,6 +29,7 @@ class EarlyStopping:
                              Default: "'checkpoint.pt'"
         """
         self.patience = patience
+        self.eps = eps
         self.verbose = verbose
         self.save_path = save_path
         self.counter = counter
@@ -47,7 +48,7 @@ class EarlyStopping:
             self.best_score = score
             self.save_checkpoint(val_loss, model, preds, epoch)
             self.save_latest(val_loss, model, preds, epoch, score)
-        elif score >= self.best_score:
+        elif score >= self.best_score + self.eps:
             self.counter = 0
             self.best_score = score
             self.save_checkpoint(val_loss, model, preds, epoch)
