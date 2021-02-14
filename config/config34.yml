@@ -40,7 +40,7 @@ cfg:
   CutmixAlpha: 1. # cutmix
   lr: 1.0e-4
   min_lr: 1.0e-6
-  batch_size: 12
+  batch_size: 10
   weight_decay: 1.0e-6
   gradient_accumulation_steps: 16
   max_grad_norm: 1000
