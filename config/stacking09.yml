@@ -1,7 +1,7 @@
 info:
   PROJECT_ID: kaggle-300711
   TRACKING_URI: http://34.74.197.236:5000
-  TITLE: stacking09-ReduceTranspose
+  TITLE: stacking09-OnlyTranspose
   EXPERIMENT_ID: '2'
   SHARE_DRIVE_PATH: /content/drive/Shareddrives/便利用/kaggle/cassava/output
 tag:
