@@ -1,0 +1,60 @@
+info:
+  PROJECT_ID: kaggle-300711
+  TRACKING_URI: http://34.74.197.236:5000
+  TITLE: 39t-add22
+  EXPERIMENT_ID: '1'
+  SHARE_DRIVE_PATH: /content/drive/Shareddrives/便利用/kaggle/cassava/output
+tag:
+  model_name: tf_efficientnet_b4_ns
+  scheduler: CosineAnnealingWarmRestarts  # ['ReduceLROnPlateau', 'CosineAnnealingLR', 'CosineAnnealingWarmRestarts']
+  criterion: bi_tempered_logistic_loss
+  trained: 22t-efficientnet_b4-cutmix-tta
+  augmentation:
+    - RandomResizedCrop
+    - Transpose
+    - HorizontalFlip
+    - VerticalFlip
+    - ShiftScaleRotate
+    - Normalize
+  valid_augmentation:
+    - CenterCrop
+    - Transpose
+    - HorizontalFlip
+    - VerticalFlip
+    - Normalize
+cfg:
+  debug: false
+  apex: false
+  print_freq: 100
+  num_workers: 4
+  size: 512
+  epochs: 2
+  early_stopping_round: 5
+  early_stopping_eps: 0
+  # factor: 0.2 # ReduceLROnPlateau
+  # patience: 0 # ReduceLROnPlateau
+  # eps: 1.0e-6 # ReduceLROnPlateau
+  # T_max: 10 # CosineAnnealingLR
+  T_0: 10 # CosineAnnealingWarmRestarts
+  heavy_aug_start_epoch: -1  #cutmix or fmix (1からカウント)
+  # CutmixAlpha: 1. # cutmix
+  lr: 5.0e-5
+  min_lr: 1.0e-6
+  batch_size: 8
+  weight_decay: 1.0e-6
+  gradient_accumulation_steps: 16
+  max_grad_norm: 1000
+  bi_tempered_loss_t1: 0.2
+  bi_tempered_loss_t2: 1.
+  seed: 42
+  target_size: 5
+  target_col: label
+  n_fold: 5
+  trn_fold:
+    - 0
+    - 1
+    - 2
+    - 3
+    - 4
+  # train: true
+  # inference: false
