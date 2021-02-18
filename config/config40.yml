@@ -26,7 +26,7 @@ cfg:
   debug: false
   apex: false
   print_freq: 100
-  num_workers: 4
+  num_workers: 0
   size: 512
   epochs: 2
   early_stopping_round: 100
