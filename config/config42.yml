@@ -29,7 +29,7 @@ cfg:
   num_workers: 4
   size: 384
   epochs: 2
-  early_stopping_round: 5
+  early_stopping_round: 100
   early_stopping_eps: 0
   # factor: 0.2 # ReduceLROnPlateau
   # patience: 0 # ReduceLROnPlateau
