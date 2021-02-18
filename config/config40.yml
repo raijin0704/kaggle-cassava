@@ -8,7 +8,7 @@ tag:
   model_name: seresnext50_32x4d
   scheduler: CosineAnnealingWarmRestarts  # ['ReduceLROnPlateau', 'CosineAnnealingLR', 'CosineAnnealingWarmRestarts']
   criterion: bi_tempered_logistic_loss
-  trained: 22t-efficientnet_b4-cutmix-tta
+  trained: 33t-seresnext50
   augmentation:
     - RandomResizedCrop
     - Transpose
